@@ -15,7 +15,7 @@ Rough breakdown of tasks
 Build html
 Set up DBs
 Build ORM
-Implement ReactJS/Vue/Angular
+Implement ReactJS/Vue/Angular 
 Use Database (MySQL/MongoDB)
 Use GET/POST routes
 
