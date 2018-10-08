@@ -13,6 +13,9 @@ The College Scorecard API
 
 Rough breakdown of tasks
 Build html
+Set up DBs
+Build ORM
+
 
 
 
