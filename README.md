@@ -29,6 +29,6 @@ Post colleges to personal page
 
 
 
-Initial html page: Login and create a user
-Questionnaire page: Cost, Location, Degree Type
-Matrix with comparison
+Initial html page: Login and create a user.
+Questionnaire page: Cost, Location, Degree Type.
+Matrix with comparison.
