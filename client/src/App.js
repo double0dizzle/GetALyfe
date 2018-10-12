@@ -6,11 +6,12 @@ import Jumbotron from "./components/Jumbotron"
 
 
 const App = () => (
+
   <Router>
     <Fragment>
       <Nav/>
 
-      <Jumbotron/>
+      {/* <Jumbotron/> */}
 
 
   <Form/>
