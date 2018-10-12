@@ -3,6 +3,8 @@ import {BrowserRouter as Router, Route, Switch }from "react-router-dom";
 import Form from "./pages/user/User";
 import Nav from "./components/NavBar"
 import Jumbotron from "./components/Jumbotron"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from './pages/user/User';
 
 
 const App = () => (
@@ -11,18 +13,16 @@ const App = () => (
     <Fragment>
       <Nav/>
 
-      {/* <Jumbotron/> */}
+      <Jumbotron/>
 
 
-  <Form/>
-     {/* <Switch>
-          <Route exact path="/User" component={}/>
+     <Switch>
+          <Route exact path="/login" component={Login}/>
           <Route exact path="/" component={}/>
-          <Route exact path="/user/:id" component={}/>
-          <Route  component={}/>
+          <Route  component={}/> */}
 
 
-    </Switch>  */}
+    </Switch> 
           </Fragment>
 </Router>
 );
