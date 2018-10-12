@@ -1,15 +1,19 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+
 import { Link } from "react-router-dom";
+
 
 
 class Form extends Component {
   // Setting the initial values of this.state.username and this.state.password
   state = {
     username: "",
+
     password: "",
     newUsername: "",
     userPassword:""
+
   };
 
   // handle any changes to the input fields
@@ -36,6 +40,7 @@ class Form extends Component {
         .then(res => this.loadUser())
         .catch(err => console.log(err));
     }
+
 
   };
 
