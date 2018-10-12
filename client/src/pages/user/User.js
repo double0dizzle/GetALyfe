@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-
-import { Link } from "react-router-dom";
-
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 
-class Form extends Component {
+
+
+
+ export default class Login extends React.Component {
+  
   // Setting the initial values of this.state.username and this.state.password
   state = {
     username: "",
@@ -30,7 +32,6 @@ class Form extends Component {
   // When the form is submitted, prevent the default event and alert the username and password
   handleFormSubmit = event => {
     event.preventDefault();
-    alert(`Username: ${this.state.username}\nPassword: ${this.state.password}`);
     this.setState({ username: "", password: "" });
     if (this.state.username && this.state.password) {
       API.saveUser({
@@ -46,27 +47,19 @@ class Form extends Component {
 
   render() {
     return (
-      <form>
-        <p>Username: {this.state.username}</p>
-        <p>Password: {this.state.password}</p>
-        <input
-          type="text"
-          placeholder="Username"
-          name="username"
-          value={this.state.username}
-          onChange={this.handleInputChange}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          value={this.state.password}
-          onChange={this.handleInputChange}
-        />
-        <button onClick={this.handleFormSubmit}>Submit</button>
-      </form>
+      <Form inline>
+        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+          <Label for="exampleEmail" className="mr-sm-2">Email</Label>
+          <Input type="email" name="email" id="exampleEmail" placeholder="something@idk.cool" />
+        </FormGroup>
+        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+          <Label for="examplePassword" className="mr-sm-2">Password</Label>
+          <Input type="password" name="password" id="examplePassword" placeholder="don't tell!" />
+        </FormGroup>
+        <Button>Submit</Button>
+      </Form>
     );
   }
 }
 
-export default Form;
+
