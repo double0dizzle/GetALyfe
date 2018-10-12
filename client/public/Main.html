@@ -130,34 +130,60 @@
 
         var wageAfterSixYears = response.results[i].latest.earnings["6_yrs_after_entry"].median;//can't grab exact median wage because the next object starts with a number
         
-        var currentEnrollment = response.results[i].latest.student.enrollment;//====student size
-        var retentionRate = response.results[i].latest.student.retention_rate.overall;//overall retention rate
+        var currentEnrollment = response.results[i].latest.student.enrollment.all;//====student size
+        var retentionRate = response.results[i].latest.student.retention_rate.overall.full_time;//overall retention rate
 
         var degreePrograms = response.results[i].latest.academics.program.degree_or_certificate;
         var availableDegreeTypes = response.results[i].latest.academics.program_available;//bachelors, certificates, associates
         var programPercentage = response.results[i].latest.academics.program_percentage;//percentage of students in each program
         
-        var medianDebtAfterGraduation = response.results[i].latest.aid.median_debt.completers;//post-grad debt
+        var medianDebtAfterGraduation = response.results[i].latest.aid.median_debt.completers.overall;//post-grad debt
         var zipCode = response.results[i].school.zip;
+        
 
         console.log(name)
+        //console.log(degreePrograms)
         
+        var degreeTypes = [];
+        for (var key in availableDegreeTypes) {//================degree types, may not want this in the matrix
+    if (availableDegreeTypes.hasOwnProperty(key)) {
+        
+        if(availableDegreeTypes[key] === true){
+          //console.log("Available Degree Types: " + key);
+          degreeTypes.push(key);
+          //console.log("Available Degree Types: " + ADT)
+        }
+      }
+    }
+      console.log("Degree Types: " + degreeTypes)
+    
+    
+    
+      var degreeProgramsArray = [];
+    for (var key in degreePrograms) {//================actual degrees, we may not want this in the matrix
+    if (degreePrograms.hasOwnProperty(key)) {
+        if(degreePrograms[key] === 1){
+         degreeProgramsArray.push(key);
+        }
+      }
+    }
+    console.log("Degree Programs: " + degreeProgramsArray)  
+        
+
+        
+        
+        for (var key in programPercentage) {//====================student percentage per program, may not want in matrix
+         if (programPercentage.hasOwnProperty(key)) {
+          var pp = programPercentage.hasOwnProperty(key);
+            if(programPercentage[key] > 0){
+          //console.log("Program/Student Body Percentage: " + key + "- " + programPercentage[key]);
+        }
+      }
+    }
         //console.log(response.results[i].school)
         //console.log(response.results[i].latest)
-        
         //console.log(Object.keys(programPercentage))
-
-        // for (var j = 0; j < Object.keys(programPercentage).length; j++){
-        //   if(Object.keys(programPercentage)[j] > 0) {
-        //     console.log(Object.keys(programPercentage)[j])
-        //   }
-        // }
         
-        // Object.keys(programPercentage).forEach(function (element){
-        //    if(element > 0){
-        //      console.log(element)
-        //    }
-        // })
         
     }
     });
@@ -178,31 +204,62 @@
 
         var wageAfterSixYears = response.results[i].latest.earnings["6_yrs_after_entry"].median;//can't grab exact median wage because the next object starts with a number
         
-        var currentEnrollment = response.results[i].latest.student.enrollment;//====student info
-        var retentionRate = response.results[i].latest.student.retention_rate.overall;
+        var currentEnrollment = response.results[i].latest.student.enrollment.all;//====student info
+        var retentionRate = response.results[i].latest.student.retention_rate.overall.full_time;
 
         var degreePrograms = response.results[i].latest.academics.program.degree_or_certificate;
         var availableDegreeTypes = response.results[i].latest.academics.program_available;//bachelors, certificates, associates
         var programPercentage = response.results[i].latest.academics.program_percentage;//percentage of students in each program
         
-        var medianDebtAfterGraduation = response.results[i].latest.aid.median_debt.completers;//post-grad debt
+        var medianDebtAfterGraduation = response.results[i].latest.aid.median_debt.completers.overall;//post-grad debt
+        var zipCode = response.results[i].school.zip;
 
-        console.log(name)
-        console.log(inStateTuition)
-        console.log(outStateTuition)
-        console.log(averageCostOfAttendance)
-        console.log(titleIV)
-        console.log(admissionRate)
-        console.log(averageSAT)
-        console.log(averageACT)
-        console.log(wageAfterSixYears)
-        console.log(currentEnrollment)
-        console.log(retentionRate)
-        console.log(degreePrograms)
-        console.log(availableDegreeTypes)
-        console.log(programPercentage)
-        console.log(medianDebtAfterGraduation)
+        console.log("School name: " + name)
+        console.log("In-state tuition: " + inStateTuition)
+        console.log("Out -of-state tuition: " + outStateTuition)
+        console.log("Average cost of attendence: " + averageCostOfAttendance)
+        //console.log("Title IV: " + titleIV)
+        console.log("Admissions rate: " + admissionRate)
+        console.log("Average SAT Score: " + averageSAT)
+        console.log("Average ACT Score: " + averageACT)
+        console.log("Average earnings after 6 years: " + wageAfterSixYears)
+        console.log("School size: " + currentEnrollment)
+        console.log("Retention rate: " + retentionRate)
+        console.log("Degree programs: " + degreePrograms)
+        console.log("Available degrees: " + availableDegreeTypes)
+        console.log("Percentage of students in program: " + programPercentage)
+        console.log("Median debt after graduation: " + medianDebtAfterGraduation)
+        console.log("School zip code: " + zipCode)
+        
+        for (var key in availableDegreeTypes) {//================degree types, may not want this in the matrix
+          if (availableDegreeTypes.hasOwnProperty(key)) {
+             if(availableDegreeTypes[key] === true){
+          console.log("Available Degree Types: " + key);
+        }
+      }
     }
+
+    
+        for (var key in degreePrograms) {//================actual degrees, we may not want this in the matrix
+          if (degreePrograms.hasOwnProperty(key)) {
+            if(degreePrograms[key] === 1){
+          console.log("Degree: " + key)
+        }
+      }
+    }
+        
+        
+
+        for (var key in programPercentage) {//====================student percentage per program, may not want in matrix
+          if (programPercentage.hasOwnProperty(key)) {
+          //var pp = programPercentage.hasOwnProperty(key);
+            if(programPercentage[key] > 0){
+            console.log("Program/Student Body Percentage: " + key + "- " + programPercentage[key]);
+        }
+      }
+    }
+    
+  }
     });
     $.ajax({
       url: queryURL3,
@@ -221,30 +278,60 @@
 
         var wageAfterSixYears = response.results[i].latest.earnings["6_yrs_after_entry"].median;//can't grab exact median wage because the next object starts with a number
         
-        var currentEnrollment = response.results[i].latest.student.enrollment;//====student info
-        var retentionRate = response.results[i].latest.student.retention_rate.overall;
+        var currentEnrollment = response.results[i].latest.student.enrollment.all;//====student info
+        var retentionRate = response.results[i].latest.student.retention_rate.overall.full_time;
 
         var degreePrograms = response.results[i].latest.academics.program.degree_or_certificate;
         var availableDegreeTypes = response.results[i].latest.academics.program_available;//bachelors, certificates, associates
         var programPercentage = response.results[i].latest.academics.program_percentage;//percentage of students in each program
         
-        var medianDebtAfterGraduation = response.results[i].latest.aid.median_debt.completers;//post-grad debt
+        var medianDebtAfterGraduation = response.results[i].latest.aid.median_debt.completers.overall;//post-grad debt
+        var zipCode = response.results[i].school.zip;
 
-        console.log(name)
-        console.log(inStateTuition)
-        console.log(outStateTuition)
-        console.log(averageCostOfAttendance)
-        console.log(titleIV)
-        console.log(admissionRate)
-        console.log(averageSAT)
-        console.log(averageACT)
-        console.log(wageAfterSixYears)
-        console.log(currentEnrollment)
-        console.log(retentionRate)
-        console.log(degreePrograms)
-        console.log(availableDegreeTypes)
-        console.log(programPercentage)
-        console.log(medianDebtAfterGraduation)
+        console.log("School name: " + name)
+        console.log("In-state tuition: " + inStateTuition)
+        console.log("Out -of-state tuition: " + outStateTuition)
+        console.log("Average cost of attendence: " + averageCostOfAttendance)
+        //console.log("Title IV: " + titleIV)
+        console.log("Admissions rate: " + admissionRate)
+        console.log("Average SAT Score: " + averageSAT)
+        console.log("Average ACT Score: " + averageACT)
+        console.log("Average earnings after 6 years: " + wageAfterSixYears)
+        console.log("School size: " + currentEnrollment)
+        console.log("Retention rate: " + retentionRate)
+        console.log("Degree programs: " + degreePrograms)
+        console.log("Available degrees: " + availableDegreeTypes)
+        console.log("Percentage of students in program: " + programPercentage)
+        console.log("Median debt after graduation: " + medianDebtAfterGraduation)
+        console.log("School zip code: " + zipCode)
+
+        for (var key in availableDegreeTypes) {//================degree types, may not want this in the matrix
+          if (availableDegreeTypes.hasOwnProperty(key)) {
+             if(availableDegreeTypes[key] === true){
+          console.log("Available Degree Types: " + key);
+        }
+      }
+    }
+
+    
+        for (var key in degreePrograms) {//================actual degrees, we may not want this in the matrix
+          if (degreePrograms.hasOwnProperty(key)) {
+            if(degreePrograms[key] === 1){
+          console.log("Degree: " + key)
+        }
+      }
+    }
+        
+        
+
+        for (var key in programPercentage) {//====================student percentage per program, may not want in matrix
+          if (programPercentage.hasOwnProperty(key)) {
+          //var pp = programPercentage.hasOwnProperty(key);
+            if(programPercentage[key] > 0){
+            console.log("Program/Student Body Percentage: " + key + "- " + programPercentage[key]);
+        }
+      }
+    }
     }
     });
     $.ajax({
@@ -264,30 +351,60 @@
 
         var wageAfterSixYears = response.results[i].latest.earnings["6_yrs_after_entry"].median;//can't grab exact median wage because the next object starts with a number
         
-        var currentEnrollment = response.results[i].latest.student.enrollment;//====student info
-        var retentionRate = response.results[i].latest.student.retention_rate.overall;
+        var currentEnrollment = response.results[i].latest.student.enrollment.all;//====student info
+        var retentionRate = response.results[i].latest.student.retention_rate.overall.full_time;
 
         var degreePrograms = response.results[i].latest.academics.program.degree_or_certificate;
         var availableDegreeTypes = response.results[i].latest.academics.program_available;//bachelors, certificates, associates
         var programPercentage = response.results[i].latest.academics.program_percentage;//percentage of students in each program
         
-        var medianDebtAfterGraduation = response.results[i].latest.aid.median_debt.completers;//post-grad debt
+        var medianDebtAfterGraduation = response.results[i].latest.aid.median_debt.completers.overall;//post-grad debt
+        var zipCode = response.results[i].school.zip;
 
-        console.log(name)
-        console.log(inStateTuition)
-        console.log(outStateTuition)
-        console.log(averageCostOfAttendance)
-        console.log(titleIV)
-        console.log(admissionRate)
-        console.log(averageSAT)
-        console.log(averageACT)
-        console.log(wageAfterSixYears)
-        console.log(currentEnrollment)
-        console.log(retentionRate)
-        console.log(degreePrograms)
-        console.log(availableDegreeTypes)
-        console.log(programPercentage)
-        console.log(medianDebtAfterGraduation)
+        console.log("School name: " + name)
+        console.log("In-state tuition: " + inStateTuition)
+        console.log("Out -of-state tuition: " + outStateTuition)
+        console.log("Average cost of attendence: " + averageCostOfAttendance)
+        //console.log("Title IV: " + titleIV)
+        console.log("Admissions rate: " + admissionRate)
+        console.log("Average SAT Score: " + averageSAT)
+        console.log("Average ACT Score: " + averageACT)
+        console.log("Average earnings after 6 years: " + wageAfterSixYears)
+        console.log("School size: " + currentEnrollment)
+        console.log("Retention rate: " + retentionRate)
+        console.log("Degree programs: " + degreePrograms)
+        console.log("Available degrees: " + availableDegreeTypes)
+        console.log("Percentage of students in program: " + programPercentage)
+        console.log("Median debt after graduation: " + medianDebtAfterGraduation)
+        console.log("School zip code: " + zipCode)
+
+        for (var key in availableDegreeTypes) {//================degree types, may not want this in the matrix
+          if (availableDegreeTypes.hasOwnProperty(key)) {
+             if(availableDegreeTypes[key] === true){
+          console.log("Available Degree Types: " + key);
+        }
+      }
+    }
+
+    
+        for (var key in degreePrograms) {//================actual degrees, we may not want this in the matrix
+          if (degreePrograms.hasOwnProperty(key)) {
+            if(degreePrograms[key] === 1){
+          console.log("Degree: " + key)
+        }
+      }
+    }
+        
+        
+
+        for (var key in programPercentage) {//====================student percentage per program, may not want in matrix
+          if (programPercentage.hasOwnProperty(key)) {
+          //var pp = programPercentage.hasOwnProperty(key);
+            if(programPercentage[key] > 0){
+            console.log("Program/Student Body Percentage: " + key + "- " + programPercentage[key]);
+        }
+      }
+    }
     }
     });
     $.ajax({
@@ -307,30 +424,60 @@
 
         var wageAfterSixYears = response.results[i].latest.earnings["6_yrs_after_entry"].median;//can't grab exact median wage because the next object starts with a number
         
-        var currentEnrollment = response.results[i].latest.student.enrollment;//====student info
-        var retentionRate = response.results[i].latest.student.retention_rate.overall;
+        var currentEnrollment = response.results[i].latest.student.enrollment.all;//====student info
+        var retentionRate = response.results[i].latest.student.retention_rate.overall.full_time;
 
         var degreePrograms = response.results[i].latest.academics.program.degree_or_certificate;
         var availableDegreeTypes = response.results[i].latest.academics.program_available;//bachelors, certificates, associates
         var programPercentage = response.results[i].latest.academics.program_percentage;//percentage of students in each program
         
-        var medianDebtAfterGraduation = response.results[i].latest.aid.median_debt.completers;//post-grad debt
+        var medianDebtAfterGraduation = response.results[i].latest.aid.median_debt.completers.overall;//post-grad debt
+        var zipCode = response.results[i].school.zip;
 
-        console.log(name)
-        console.log(inStateTuition)
-        console.log(outStateTuition)
-        console.log(averageCostOfAttendance)
-        console.log(titleIV)
-        console.log(admissionRate)
-        console.log(averageSAT)
-        console.log(averageACT)
-        console.log(wageAfterSixYears)
-        console.log(currentEnrollment)
-        console.log(retentionRate)
-        console.log(degreePrograms)
-        console.log(availableDegreeTypes)
-        console.log(programPercentage)
-        console.log(medianDebtAfterGraduation)
+        console.log("School name: " + name)
+        console.log("In-state tuition: " + inStateTuition)
+        console.log("Out -of-state tuition: " + outStateTuition)
+        console.log("Average cost of attendence: " + averageCostOfAttendance)
+        //console.log("Title IV: " + titleIV)
+        console.log("Admissions rate: " + admissionRate)
+        console.log("Average SAT Score: " + averageSAT)
+        console.log("Average ACT Score: " + averageACT)
+        console.log("Average earnings after 6 years: " + wageAfterSixYears)
+        console.log("School size: " + currentEnrollment)
+        console.log("Retention rate: " + retentionRate)
+        console.log("Degree programs: " + degreePrograms)
+        console.log("Available degrees: " + availableDegreeTypes)
+        console.log("Percentage of students in program: " + programPercentage)
+        console.log("Median debt after graduation: " + medianDebtAfterGraduation)
+        console.log("School zip code: " + zipCode)
+
+        for (var key in availableDegreeTypes) {//================degree types, may not want this in the matrix
+          if (availableDegreeTypes.hasOwnProperty(key)) {
+             if(availableDegreeTypes[key] === true){
+          console.log("Available Degree Types: " + key);
+        }
+      }
+    }
+
+    
+        for (var key in degreePrograms) {//================actual degrees, we may not want this in the matrix
+          if (degreePrograms.hasOwnProperty(key)) {
+            if(degreePrograms[key] === 1){
+          console.log("Degree: " + key)
+        }
+      }
+    }
+        
+        
+
+        for (var key in programPercentage) {//====================student percentage per program, may not want in matrix
+          if (programPercentage.hasOwnProperty(key)) {
+          //var pp = programPercentage.hasOwnProperty(key);
+            if(programPercentage[key] > 0){
+            console.log("Program/Student Body Percentage: " + key + "- " + programPercentage[key]);
+        }
+      }
+    }
     }
     });
     

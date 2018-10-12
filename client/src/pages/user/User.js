@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from "../../utils/API";
 
 class Form extends Component {
   // Setting the initial values of this.state.username and this.state.password
@@ -23,6 +24,14 @@ class Form extends Component {
     event.preventDefault();
     alert(`Username: ${this.state.username}\nPassword: ${this.state.password}`);
     this.setState({ username: "", password: "" });
+    if (this.state.username && this.state.password) {
+      API.saveUser({
+        title: this.state.username,
+        author: this.state.password,
+      })
+        .then(res => this.loadUser())
+        .catch(err => console.log(err));
+    }
   };
 
   render() {
