@@ -4,7 +4,9 @@ class Form extends Component {
   // Setting the initial values of this.state.username and this.state.password
   state = {
     username: "",
-    password: ""
+    password: "",
+    newUsername: "",
+    userPassword:""
   };
 
   // handle any changes to the input fields
