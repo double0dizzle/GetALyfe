@@ -11,7 +11,11 @@ matrix: function(queryUrl) {
 
  info: function(queryUrl) {
     return axios.get("/api/college/info/" + queryUrl);
- }
+ },
+ saveUser: function(User) {
+    return axios.post("/api/user", User);
+  }
+
 }
 
 // import axios from "axios";
