@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Sign-in</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        #add-user{
+            position: relative;
+            left: 400px;
+            bottom: 35px;
+        }
+
+        #sign-in{
+            position: relative;
+            left: 400px;
+            bottom: 35px;
+        }
+
+        .jumbotron{
+            background-color: rgb(72, 72, 170);
+        }
+        
+    </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <br>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+      <h1 class="text-center">GetALyfe Sign-up</h1>
+    </div>
+
+    <div class="row">
+
+      <!-- Sign-Up Card-->
+      <div class="col-lg-6">
+        <div class="card card-default">
+          <div class="card-heading">
+            <h3 class="card-title">New Member Sign-Up</h3>
+          </div>
+          <div class="card-body">
+
+            <!-- Sign-up Form (note the various input "types")-->
+            <form role="form">
+              <div class="form-group row">
+                <label for="Username-input">Username:</label>
+                <input class="form-control" id="Username-input" type="text">
+              </div>
+              <div class="form-group row">
+                <label for="email-input">Email:</label>
+                <input class="form-control" id="email-input" type="email">
+              </div>
+              <form action="">
+                  <br>
+                    Password: <input type="password" name="password">
+                    </form>
+              <button class="btn btn-danger" id="add-user" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+            <div class="card card-default">
+              <div class="card-heading">
+                <h3 class="card-title">User Sign-in</h3>
+              </div>
+              <div class="card-body">
+    
+                <!-- Sign-up Form (note the various input "types")-->
+                <form role="form">
+                  <div class="form-group row">
+                    <label for="Username-input">Username:</label>
+                    <input class="form-control" id="Username-input" type="text">
+                  </div>
+                  <div class="form-group row">
+                    <label for="email-input">Email:</label>
+                    <input class="form-control" id="email-input" type="email">
+                  </div>
+                  <form action="">
+                      <br>
+                        Password: <input type="password" name="password">
+                        </form>
+                  <button class="btn btn-primary" id="sign-in" type="submit">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+    
+
+     
+      <!-- <div class="col-lg-6">
+        <div class="card card-default">
+          <div class="card-heading">
+            <h3 class="card-title">Most Recent Member</h3>
+          </div>
+          <div class="card-body" id="recent-member">
+            <h2 id="name-display">Jimmy John</h2>
+            <h4 id="email-display">Email: jimmy@john.edu</h4>
+            <h4 id="age-display">Age: 27</h4>
+            <p id="comment-display">I'm signing up, because I want to spread sandwiches to the world.</p>
+          </div> -->
+        </div>
+      </div>
+
+    </div>
+
+  </div>
