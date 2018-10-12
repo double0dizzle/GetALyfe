@@ -1,6 +1,6 @@
 import React, { Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch }from "react-router-dom";
-import Form from "./pages/User";
+import Form from "./pages/user/User";
 import Nav from "./components/NavBar"
 import Jumbotron from "./components/Jumbotron"
 
