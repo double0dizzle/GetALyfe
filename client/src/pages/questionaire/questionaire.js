@@ -1,95 +1,151 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, ButtonGroup, ButtonToolbar } from 'reactstrap';
 
-export default class Question extends React.Component {
-  render() {
-    return (
-      <Form>
-        <FormGroup>
-          <Label for="exampleEmail">Plain Text (Static)</Label>
-          <Input plaintext>Some plain text/ static value</Input>
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleEmail">Email</Label>
-          <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
-        </FormGroup>
-        <FormGroup>
-          <Label for="examplePassword">Password</Label>
-          <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleUrl">Url</Label>
-          <Input type="url" name="url" id="exampleUrl" placeholder="url placeholder" />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleNumber">Number</Label>
-          <Input type="number" name="number" id="exampleNumber" placeholder="number placeholder" />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleDatetime">Datetime</Label>
-          <Input type="datetime" name="datetime" id="exampleDatetime" placeholder="datetime placeholder" />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleDate">Date</Label>
-          <Input type="date" name="date" id="exampleDate" placeholder="date placeholder" />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleTime">Time</Label>
-          <Input type="time" name="time" id="exampleTime" placeholder="time placeholder" />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleColor">Color</Label>
-          <Input type="color" name="color" id="exampleColor" placeholder="color placeholder" />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleSearch">Search</Label>
-          <Input type="search" name="search" id="exampleSearch" placeholder="search placeholder" />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleSelect">Select</Label>
-          <Input type="select" name="select" id="exampleSelect">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </Input>
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleSelectMulti">Select Multiple</Label>
-          <Input type="select" name="selectMulti" id="exampleSelectMulti" multiple>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </Input>
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleText">Text Area</Label>
-          <Input type="textarea" name="text" id="exampleText" />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleFile">File</Label>
-          <Input type="file" name="file" id="exampleFile" />
-          <FormText color="muted">
-            This is some placeholder block-level help text for the above input.
-            It's a bit lighter and easily wraps to a new line.
-          </FormText>
-        </FormGroup>
-        <FormGroup check>
-          <Label check>
-            <Input type="radio" />{' '}
-            Option one is this and that—be sure to include why it's great
-          </Label>
-        </FormGroup>
-        <FormGroup check>
-          <Label check>
-            <Input type="checkbox" />{' '}
-            Check me out
-          </Label>
-        </FormGroup>
-      </Form>
-    );
-  }
-}
+// export default class Example extends React.Component {
+//   render() {
+//     return (
+//       <ButtonToolbar>
+//         <ButtonGroup>
+//           <Button>1</Button>
+//           <Button>2</Button>
+//           <Button>3</Button>
+//           <Button>4</Button>
+//         </ButtonGroup>
+//         <ButtonGroup>
+//           <Button>5</Button>
+//           <Button>6</Button>
+//           <Button>7</Button>
+//         </ButtonGroup>
+//         <ButtonGroup>
+//           <Button>8</Button>
+//         </ButtonGroup>
+//       </ButtonToolbar>
+//     );
+//   }
+// }
+
+export default class Example extends React.Component {
+    constructor(props) {
+      super(props);
+  
+      //this.ButtonToolbar = this.ButtonToolbar.bind(this);
+      this.state = {
+        collapsed: true
+      };
+    }
+  
+    ButtonToolbar() {
+      this.setState({
+        collapsed: !this.state.collapsed
+      });
+    }
+    render() {
+        return (
+            <div>
+                <br /> 
+                <br /> 
+            <ButtonToolbar>
+              <ButtonGroup>
+              <p>How important is tuition to you?</p>
+                <Button>1</Button>
+                <Button>2</Button>
+                <Button>3</Button>
+                <Button>4</Button>
+                <Button>5</Button>
+              </ButtonGroup>
+              </ButtonToolbar>
+              <br />
+              <br />           
+           
+
+     <ButtonToolbar>
+      <ButtonGroup>
+      <p>How important is the admission rate and selectiveness of your program?</p>
+        <Button>1</Button>
+        <Button>2</Button>
+        <Button>3</Button>
+        <Button>4</Button>
+        <Button>5</Button>
+      </ButtonGroup>
+      </ButtonToolbar>
+       <br /> 
+       <br /> 
+
+      <ButtonToolbar>
+      <ButtonGroup>
+      <p>What is your SAT score?</p>
+      {`  `}     
+                <Button>1</Button>
+                <Button>2</Button>
+                <Button>3</Button>
+                <Button>4</Button>
+                <Button>5</Button>
+              </ButtonGroup>
+              </ButtonToolbar>
+              <br />
+              <br /> 
+              
+
+              <ButtonToolbar>
+              <ButtonGroup>
+              <p>What is your ACT score?</p>
+                <Button>1</Button>
+                <Button>2</Button>
+                <Button>3</Button>
+                <Button>4</Button>
+                <Button>5</Button>
+              </ButtonGroup>
+              </ButtonToolbar>
+              <br />
+              <br /> 
+              
+
+              <ButtonToolbar>
+              <ButtonGroup>
+              <p>Earnings after 6 years of graduations?</p>
+                <Button>1</Button>
+                <Button>2</Button>
+                <Button>3</Button>
+                <Button>4</Button>
+                <Button>5</Button>
+              </ButtonGroup>
+              </ButtonToolbar>
+              <br />
+              <br /> 
+              
+
+              <ButtonToolbar>
+              <ButtonGroup>
+              <p>How important is debt after graduation?</p>
+                <Button>1</Button>
+                <Button>2</Button>
+                <Button>3</Button>
+                <Button>4</Button>
+                <Button>5</Button>
+              </ButtonGroup>
+              </ButtonToolbar>
+              <br />
+              <br /> 
+              
+
+              <ButtonToolbar>
+              <ButtonGroup>
+              <p>How important is proximity?</p>
+                <Button>1</Button>
+                <Button>2</Button>
+                <Button>3</Button>
+                <Button>4</Button>
+                <Button>5</Button>
+              </ButtonGroup>
+              </ButtonToolbar>
+              </div>
+
+              
+      
+            
+            
+          );
+        }
+      }
+
+      
