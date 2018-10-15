@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component}from "react";
 import API from "../../utils/API";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
@@ -35,8 +35,8 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
     this.setState({ username: "", password: "" });
     if (this.state.username && this.state.password) {
       API.saveUser({
-        title: this.state.username,
-        author: this.state.password,
+        username: this.state.username,
+        password: this.state.password,
       })
         .then(res => this.loadUser())
         .catch(err => console.log(err));
@@ -49,14 +49,24 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
     return (
       <Form inline>
         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-          <Label for="exampleEmail" className="mr-sm-2">Email</Label>
-          <Input type="email" name="email" id="exampleEmail" placeholder="something@idk.cool" />
+          <Label for="username" className="mr-sm-2">username/email</Label>
+          <Input
+           type="text"
+           name="username"
+            value={this.state.username}
+             onChange={this.handleInputChange}
+              placeholder="username" />
         </FormGroup>
         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-          <Label for="examplePassword" className="mr-sm-2">Password</Label>
-          <Input type="password" name="password" id="examplePassword" placeholder="don't tell!" />
+          <Label for="password" className="mr-sm-2">Password</Label>
+          <Input 
+          type="password"
+           name="password"
+            value={this.state.password}
+            onChange={this.handleInputChange}
+             placeholder="Password" />
         </FormGroup>
-        <Button>Submit</Button>
+        <Button onClick={this.handleFormSubmit}>Submit</Button>
       </Form>
     );
   }

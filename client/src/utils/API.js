@@ -13,7 +13,8 @@ matrix: function(queryUrl) {
     return axios.get("/api/college/info/" + queryUrl);
  },
  saveUser: function(User) {
-    return axios.post("/api/user", User);
+     console.log(User)
+    return axios.post("/api/user/", User);
   }
 
 }
