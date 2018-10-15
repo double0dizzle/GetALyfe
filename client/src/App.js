@@ -5,6 +5,7 @@ import Nav from "./components/NavBar"
 import Jumbotron from "./components/Jumbotron"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './pages/user/User';
+import Questionaire from './pages/questionaire';
 
 
 const App = () => (
@@ -18,11 +19,12 @@ const App = () => (
 
      <Switch>
           <Route exact path="/login" component={Login}/>
-          <Route exact path="/" component={}/>
-          <Route  component={}/> */}
+          <Route exact path="/" component={Form}/>
+          <Route  component={Nav}/> */}
 
 
-    </Switch> 
+    </Switch>
+       <Questionaire /> 
           </Fragment>
 </Router>
 );
