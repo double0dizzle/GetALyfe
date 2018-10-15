@@ -6,6 +6,7 @@ import Jumbotron from "./components/Jumbotron"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './pages/user/User';
 import Questionaire from './pages/questionaire';
+import CollegePick from './pages/collegePick';
 
 
 const App = () => (
@@ -25,6 +26,7 @@ const App = () => (
 
     </Switch>
        <Questionaire /> 
+       <CollegePick />
           </Fragment>
 </Router>
 );
