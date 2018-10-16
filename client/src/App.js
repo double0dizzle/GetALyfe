@@ -7,7 +7,7 @@ import CollegePick from './pages/collegePick';
 import Nav from './components/NavBar';
 import Jumbotron from './components/Jumbotron';
 import Home from './pages/collegePick';
-import DATA from './utils/API'
+import Data from './utils/API'
 
 
 const App = () => (
@@ -15,21 +15,20 @@ const App = () => (
   <Router>
     <Fragment>
       <Nav/>
-
       <Jumbotron/>
 
 
      <Switch>
           <Route exact path="/login" component={Login}/>
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/data" component={Data}/>
+          <Route exact path="/login/home" component={Home}/>
+          <Route exact path="/login/questionaire" component={Questionaire}/>
 
           
 
 
     </Switch>
-       <Questionaire /> 
-       <CollegePick />
+       {/* <Questionaire /> 
+       <CollegePick /> */}
           </Fragment>
 </Router>
 );
