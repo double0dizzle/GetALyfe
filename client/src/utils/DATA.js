@@ -7,7 +7,7 @@ const BASEURL = "https://api.data.gov/ed/collegescorecard/v1/schools.json?school
 const APIKEY ="&api_key=Kcfhwk6xaDVevOVWHtH3mfVsYejS9BtoMhD1x85h" ;
 
 
- class DATA extends React.Component {
+ class Data extends React.Component {
     state = {
       posts: []
     }
@@ -33,6 +33,6 @@ const APIKEY ="&api_key=Kcfhwk6xaDVevOVWHtH3mfVsYejS9BtoMhD1x85h" ;
       );
     }
   }
-  export default DATA;
+  export default Data;
   
 

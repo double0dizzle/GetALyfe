@@ -1,6 +1,8 @@
 import React, {Component}from "react";
 import API from "../../utils/API";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import {Redirect} from 'react-router-dom';
+
 
 
 
@@ -32,13 +34,14 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
   // When the form is submitted, prevent the default event and alert the username and password
   handleFormSubmit = event => {
     event.preventDefault();
+
     this.setState({ username: "", password: "" });
     if (this.state.username && this.state.password) {
       API.saveUser({
         username: this.state.username,
         password: this.state.password,
       })
-        .then(res => this.loadUser())
+        .then(res =>   window.location="/login/questionaire")
         .catch(err => console.log(err));
     }
 
@@ -66,7 +69,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
             onChange={this.handleInputChange}
              placeholder="Password" />
         </FormGroup>
-        <Button onClick={this.handleFormSubmit}>Submit</Button>
+        <Button onClick={this.handleFormSubmit} >Submit</Button>
       </Form>
     );
   }
